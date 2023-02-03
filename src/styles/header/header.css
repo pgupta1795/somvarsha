@@ -1,0 +1,39 @@
+.animate-open-menu {
+  -webkit-animation: open-menu 0.5s ease-in-out both;
+  animation: open-menu 0.5s ease-in-out both;
+  animation-direction: alternate;
+}
+
+@keyframes open-menu {
+  0% {
+    transform: scaleY(0);
+  }
+
+  70% {
+    transform: scaleY(1.2);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.line {
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+#check:checked ~ .line:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(5px, 0px);
+}
+
+#check:checked ~ .line:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+
+#check:checked ~ .line:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(14px, -2.5px) rotatez(45deg);
+}
