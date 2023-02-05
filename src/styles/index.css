@@ -1,4 +1,5 @@
 @import './home/homePage.css';
+@import './funds/fundsPage.css';
 @import './header/header.css';
 
 @tailwind base;
@@ -7,13 +8,17 @@
 
 :root {
   --primary-color: #ffa541;
+  --primary-dark-color: #d77505;
+  --primary-light-color: #ffebcd;
   --secondary-color: #152a36;
   --height-toolbar: 5rem;
   --purple: #8884d8;
   --pink-dark: #d9829b;
   --sea-blue: #3dc1d3;
-  --brown: #ffdf46;
+  --yellow: #ffdf46;
   --crimson: #d33d58;
+  --gray-light: #777;
+  --gray-dark: #333;
 }
 
 html,

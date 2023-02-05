@@ -1,6 +1,10 @@
 import { FC } from 'react';
 
-const Search: FC<React.SVGProps<SVGSVGElement>> = () => (
+interface SearchProps {
+  color?: string;
+}
+
+const Search: FC<React.SVGProps<SVGSVGElement>> = ({ color }: SearchProps) => (
   <svg viewBox="0 0 24 24" version="1.1" className="w-8 h-8 md:w-5 md:h-5">
     <title>Search</title>
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -15,7 +19,7 @@ const Search: FC<React.SVGProps<SVGSVGElement>> = () => (
         />
         <circle
           id="Oval"
-          stroke="var(--secondary-color)"
+          stroke={color}
           strokeWidth="2"
           strokeLinecap="round"
           cx="11"
@@ -28,7 +32,7 @@ const Search: FC<React.SVGProps<SVGSVGElement>> = () => (
           x2="19"
           y2="20"
           id="Path"
-          stroke="var(--secondary-color)"
+          stroke={color}
           strokeWidth="2"
           strokeLinecap="round"
         />
@@ -36,5 +40,9 @@ const Search: FC<React.SVGProps<SVGSVGElement>> = () => (
     </g>
   </svg>
 );
+
+Search.defaultProps = {
+  color: 'var(--secondary-color)',
+};
 
 export default Search;

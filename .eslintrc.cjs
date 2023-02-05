@@ -33,5 +33,9 @@ module.exports = {
     'no-alert': 'off',
     'func-names': 'off',
     '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'false' }],
+    'react/no-unescaped-entities': 0,
+    'jsx-a11y/no-noninteractive-tabindex': 0,
+    'no-unused-expressions': 'off',
+    '@typescript-eslint/no-unused-expressions': 'off',
   },
 };

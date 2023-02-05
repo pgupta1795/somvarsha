@@ -204,3 +204,32 @@ export const mobileMenuItems = {
     },
   },
 };
+
+export const rotate = {
+  rest: { rotate: 0 },
+  hover: { rotate: 180, transition: { duration: 0.4 } },
+};
+
+export const slideVerticalAnimation = {
+  open: {
+    rotateX: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+      mass: 0.8,
+    },
+    display: 'block',
+  },
+  close: {
+    rotateX: -15,
+    y: 20,
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+    },
+    transitionEnd: {
+      display: 'none',
+    },
+  },
+};

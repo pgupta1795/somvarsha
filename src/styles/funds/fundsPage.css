@@ -1,0 +1,14 @@
+.myscroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 10px #d3d3d3;
+  background-color: currentColor;
+}
+
+.myscroll::-webkit-scrollbar {
+  border-radius: 14px;
+  width: 12px;
+}
+
+.myscroll::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 14px #d3d3d3;
+  background-color: #555;
+}

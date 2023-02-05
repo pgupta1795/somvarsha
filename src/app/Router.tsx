@@ -1,15 +1,12 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import tabs from '../pages/funds/components/MutualFundTabs';
 
 const ErrorPage = lazy(() => import('../pages/error/ErrorPage'));
 const HomePage = lazy(() => import('../pages/home/HomePage'));
 const Stocks = lazy(() => import('../pages/stocks/Stocks'));
 const Funds = lazy(() => import('../pages/funds/Funds'));
-const Debt = lazy(() => import('../pages/funds/components/Debt'));
-const Balanced = lazy(() => import('../pages/funds/components/Balanced'));
-const Equity = lazy(() => import('../pages/funds/components/Equity'));
-const Liquid = lazy(() => import('../pages/funds/components/Liquid'));
-const Tax = lazy(() => import('../pages/funds/components/Tax'));
+const Fund = lazy(() => import('../pages/fund/Fund'));
 
 const Router = () => (
   <Routes>
@@ -29,47 +26,25 @@ const Router = () => (
         </Suspense>
       }
     >
+      {/* <Route index element={<Navigate to="root" />} /> */}
+      {tabs.map((tab) => (
+        <Route key={tab.name} path={tab.name} element={tab.component}>
+          <Route index element={<Navigate to="all" />} />
+          {tab.children ? (
+            <Route path=":category" element={tab.children} />
+          ) : null}
+        </Route>
+      ))}
       <Route
-        path="equity"
+        path="fund/:id"
         element={
           <Suspense fallback={<>LOADING...</>}>
-            <Equity />
-          </Suspense>
-        }
-      />
-      <Route
-        path="debt"
-        element={
-          <Suspense fallback={<>LOADING...</>}>
-            <Debt />
-          </Suspense>
-        }
-      />
-      <Route
-        path="liquid"
-        element={
-          <Suspense fallback={<>LOADING...</>}>
-            <Liquid />
-          </Suspense>
-        }
-      />
-      <Route
-        path="tax"
-        element={
-          <Suspense fallback={<>LOADING...</>}>
-            <Tax />
-          </Suspense>
-        }
-      />
-      <Route
-        path="balanced"
-        element={
-          <Suspense fallback={<>LOADING...</>}>
-            <Balanced />
+            <Fund />
           </Suspense>
         }
       />
     </Route>
+
     <Route
       path="stocks"
       element={

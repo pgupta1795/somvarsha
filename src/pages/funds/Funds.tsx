@@ -1,47 +1,31 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import Container from '../../components/container/Container';
+import tabs from './components/MutualFundTabs';
 
-const Funds = () => (
-  <Container>
-    <div className="grid grid-cols-1 gap-8 tracking-wider">
-      <div className="text-4xl tracking-widest font-bold">
-        Top Performing Mutual Funds
-      </div>
-      <div className="grid grid-flow-row grid-cols-5 items-start gap-4 w-1/2 text-center">
-        <Link
-          to="equity"
-          className="bg-white p-4 rounded-lg hover:shadow-lg border-4 border-purple"
-        >
-          Equity
-        </Link>
-        <Link
-          to="debt"
-          className="bg-white p-4 rounded-lg hover:shadow-lg  border-4 border-pink-dark"
-        >
-          Debt
-        </Link>
-        <Link
-          to="liquid"
-          className="bg-white p-4 rounded-lg hover:shadow-lg  border-4 border-sea-blue"
-        >
-          Liquid
-        </Link>
-        <Link
-          to="tax"
-          className="bg-white p-4 rounded-lg hover:shadow-lg  border-4 border-brown"
-        >
-          Tax
-        </Link>
-        <Link
-          to="balanced"
-          className="bg-white p-4 rounded-lg hover:shadow-lg  border-4 border-crimson"
-        >
-          Balanced
-        </Link>
+const Funds = () => {
+  const location = useLocation();
+
+  const isActive = (name: string) =>
+    encodeURI(location.pathname).includes(name);
+
+  return (
+    <Container>
+      <div className="tabs tabs-boxed bg-secondary mb-8">
+        {tabs.map((t) => (
+          <Link
+            key={t.name}
+            to={t.name}
+            className={`tab tab-lg text-primary ${
+              isActive(t.name) ? 'tab-active' : ''
+            }`}
+          >
+            {t.label}
+          </Link>
+        ))}
       </div>
       <Outlet />
-    </div>
-  </Container>
-);
+    </Container>
+  );
+};
 
 export default Funds;

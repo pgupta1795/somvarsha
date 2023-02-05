@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/no-extraneous-dependencies */
 /** @type {import('tailwindcss').Config} */
-// eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
 const plugin = require('tailwindcss/plugin');
+const daisyui = require('daisyui');
 
 module.exports = {
   mode: 'jit',
@@ -15,12 +17,16 @@ module.exports = {
       colors: {
         secondary: 'var(--secondary-color)',
         primary: 'var(--primary-color)',
+        'primary-light': 'var(--primary-light-color)',
+        'primary-dark': 'var(--primary-dark-color)',
         card: '#d3d3d3',
         purple: 'var(--purple)',
-        brown: 'var(--brown)',
+        yellow: 'var(--yellow)',
         'sea-blue': 'var(--sea-blue)',
         'pink-dark': 'var(--pink-dark)',
         crimson: 'var(--crimson)',
+        'gray-light': 'var(--gray-light)',
+        'gray-dark': 'var(--gray-dark)',
       },
     },
     letterSpacing: {
@@ -39,5 +45,23 @@ module.exports = {
         html: { fontSize: '16px' },
       });
     }),
+    daisyui,
   ],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: '#ffa541',
+          secondary: '#152a36',
+          accent: '#2c16aa',
+          neutral: '#2D2031',
+          'base-100': '#FAFAFA',
+          info: '#307DD5',
+          success: '#55D889',
+          warning: '#E59E06',
+          error: '#F03B24',
+        },
+      },
+    ],
+  },
 };
