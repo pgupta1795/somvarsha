@@ -13,14 +13,15 @@ const FundsCategory = () => {
         bgColor="bg-slate-500"
         borderColor="border-slate-500"
       />
-      {Object.keys(categories).map((key, index) => (
-        <FundsCategoryLink
-          key={key}
-          category={key}
-          bgColor={Object.values(Colors.BG)[index]}
-          borderColor={Object.values(Colors.BORDER)[index]}
-        />
-      ))}
+      {categories &&
+        Object.keys(categories).map((key, index) => (
+          <FundsCategoryLink
+            key={key}
+            category={key}
+            bgColor={Object.values(Colors.BG)[index]}
+            borderColor={Object.values(Colors.BORDER)[index]}
+          />
+        ))}
     </div>
   );
 };

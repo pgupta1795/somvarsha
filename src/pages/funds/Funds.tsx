@@ -1,5 +1,6 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import Container from '../../components/container/Container';
+import Indexes from './components/card/Indexes';
 import tabs from './components/MutualFundTabs';
 
 const Funds = () => {
@@ -10,11 +11,11 @@ const Funds = () => {
 
   return (
     <Container>
-      <div className="tabs tabs-boxed bg-secondary mb-8">
+      <div className="tabs tabs-boxed bg-secondary">
         {tabs.map((t) => (
           <Link
             key={t.name}
-            to={t.name}
+            to={`${t.name}/all`}
             className={`tab tab-lg text-primary ${
               isActive(t.name) ? 'tab-active' : ''
             }`}
@@ -23,6 +24,7 @@ const Funds = () => {
           </Link>
         ))}
       </div>
+      <Indexes />
       <Outlet />
     </Container>
   );

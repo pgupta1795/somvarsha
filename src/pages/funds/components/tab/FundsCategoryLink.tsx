@@ -18,11 +18,11 @@ const FundsCategoryLink = ({
       key={category}
       title={category}
       to={category.toLowerCase()}
-      className={`py-3 rounded-lg hover:shadow-lg border-4 ${borderColor} transition-all ease-in hover:scale-110 ${
+      className={`hover:shadow-lg border-4 ${borderColor} transition-all ease-in hover:scale-110 ${
         decodeURI(location.pathname).includes(category.toLowerCase())
           ? bgColor
           : 'bg-white'
-      } inline-flex items-center justify-center text-center max-sm:h-[4rem] text-sm`}
+      } text-center max-sm:h-[4rem] text-xs btn btn-outline`}
     >
       {category}
     </Link>

@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import fundsReducer from '../features/funds/fundsSlice';
+import indexReducer from '../features/index/indexSlice';
 import mobileMenuReducer from '../features/menu/mobileMenuSlice';
 
 const store = configureStore({
   reducer: {
     mobileMenu: mobileMenuReducer,
     funds: fundsReducer,
+    index: indexReducer,
   },
 });
 

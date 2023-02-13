@@ -14,7 +14,7 @@ const InputField = ({ name, label, ...rest }: InputFieldProps) => (
     <label htmlFor={name}>
       {label}
       <input
-        className="w-full font-poppins border-none outline-none p-2 rounded-lg mt-4 dark:bg-black bg-white"
+        className="w-full font-poppins border-none outline-none p-2 rounded-lg mt-4"
         name={name}
         {...rest}
       />

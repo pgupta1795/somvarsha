@@ -13,8 +13,12 @@ const Select = ({ value, options, onChange, multiple }: SelectProps) => {
   const [highlightedIndex, setHighlightedIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const isOptionSelected = (option: SelectOption) =>
-    multiple ? value.includes(option) : option === value;
+  const isOptionSelected = (option: SelectOption) => {
+    if (!multiple) return option === value;
+    if (value.find((e) => option.label === e.label && option.value === e.value))
+      return true;
+    return false;
+  };
 
   const selectOption = (option: SelectOption) => {
     if (multiple) {

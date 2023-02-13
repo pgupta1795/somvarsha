@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unstable-nested-components */
 import { lazy, Suspense } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import tabs from '../pages/funds/components/MutualFundTabs';
 
 const ErrorPage = lazy(() => import('../pages/error/ErrorPage'));
@@ -26,10 +27,9 @@ const Router = () => (
         </Suspense>
       }
     >
-      {/* <Route index element={<Navigate to="root" />} /> */}
       {tabs.map((tab) => (
         <Route key={tab.name} path={tab.name} element={tab.component}>
-          <Route index element={<Navigate to="all" />} />
+          {/* <Route index element={<Navigate to="all" />} /> */}
           {tab.children ? (
             <Route path=":category" element={tab.children} />
           ) : null}

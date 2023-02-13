@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react';
+import NewFunds from './tab/NewFunds';
 
 const Category = lazy(() => import('./children/Category'));
-const AllFunds = lazy(() => import('./tab/AllFunds'));
+const FundTypesTabs = lazy(() => import('./tab/FundTypesTabs'));
 
 const MutualFundTabs = [
   {
@@ -9,7 +10,7 @@ const MutualFundTabs = [
     label: 'All Funds',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
+        <FundTypesTabs />
       </Suspense>
     ),
     children: (
@@ -19,11 +20,11 @@ const MutualFundTabs = [
     ),
   },
   {
-    name: 'insta-redeem',
+    name: 'instant',
     label: 'Insta Redeem',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
+        <FundTypesTabs />
       </Suspense>
     ),
     children: (
@@ -33,11 +34,11 @@ const MutualFundTabs = [
     ),
   },
   {
-    name: 'save-taxes',
+    name: 'elss',
     label: 'Save Taxes',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
+        <FundTypesTabs />
       </Suspense>
     ),
     children: (
@@ -47,11 +48,11 @@ const MutualFundTabs = [
     ),
   },
   {
-    name: 'top-rated',
+    name: 'top_rated',
     label: 'Top Rated',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
+        <FundTypesTabs />
       </Suspense>
     ),
     children: (
@@ -61,11 +62,11 @@ const MutualFundTabs = [
     ),
   },
   {
-    name: 'investor-choice',
+    name: 'investor',
     label: 'Investor Choice',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
+        <FundTypesTabs />
       </Suspense>
     ),
     children: (
@@ -79,21 +80,16 @@ const MutualFundTabs = [
     label: 'New Funds',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
-      </Suspense>
-    ),
-    children: (
-      <Suspense fallback={<>LOADING...</>}>
-        <Category />
+        <NewFunds />
       </Suspense>
     ),
   },
   {
-    name: 'top-searched',
+    name: 'top_searched',
     label: 'Top Searched',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
+        <FundTypesTabs />
       </Suspense>
     ),
     children: (
@@ -103,11 +99,11 @@ const MutualFundTabs = [
     ),
   },
   {
-    name: 'in-one',
+    name: 'core_portfolio_fund',
     label: 'All in One',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
+        <FundTypesTabs />
       </Suspense>
     ),
     children: (
@@ -117,11 +113,11 @@ const MutualFundTabs = [
     ),
   },
   {
-    name: 'international',
+    name: 'international_funds',
     label: 'International',
     component: (
       <Suspense fallback={<>LOADING...</>}>
-        <AllFunds />
+        <FundTypesTabs />
       </Suspense>
     ),
     children: (

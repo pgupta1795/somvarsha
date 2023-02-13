@@ -7,7 +7,7 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #ffa541;
+  --primary-color: #d3d3d3;
   --primary-dark-color: #d77505;
   --primary-light-color: #ffebcd;
   --secondary-color: #152a36;
@@ -105,4 +105,16 @@ body::-webkit-scrollbar-thumb {
 
 .page-content {
   min-height: calc(100vh - 234px - var(--height-toolbar));
+}
+
+.table {
+  @apply rounded-lg;
+}
+
+.table :where(tbody) :where(th, td, tr) {
+  background-color: var(--secondary-color);
+}
+
+.table :where(thead, tfoot) :where(th, td, tr) {
+  background-color: #307dd5;
 }
